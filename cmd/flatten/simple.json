@@ -1,0 +1,16 @@
+{
+    "sample": {
+        "someitem": {
+            "thesearecool": [
+                {
+                    "neat": "wow"
+                },
+                {
+                    "neat": "tubular",
+                    "sausage": true,
+                    "eggs": false
+                }
+            ]
+        }
+    }
+}
