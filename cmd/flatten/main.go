@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -27,7 +28,12 @@ func main() {
 	}
 
 	var jsonBlob map[string]interface{}
-	json.Unmarshal(filebytes, &jsonBlob)
+
+	d := json.NewDecoder(bytes.NewReader(filebytes))
+	d.UseNumber()
+	if err := d.Decode(&jsonBlob); err != nil {
+		log.Fatal(err)
+	}
 
 	flattenedObject := flatten.Flatten(jsonBlob)
 	if *out != "" {
