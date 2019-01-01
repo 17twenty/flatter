@@ -1,7 +1,7 @@
 {
     "lib": {
       "name": "go-flatten",
-      "description": "Really simple library and demo app to flatten JSON into dot notation",
+      "description": "Really simple library to flatten JSON into dot notation. Forked from https://github.com/17twenty/flatter",
       "version": {
         "major": "0",
         "minor": "8"
