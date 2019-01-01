@@ -1,5 +1,5 @@
 /*
-Package flatten is a simple library to flatten JSON into dot notation.
+Package flatten is a simple library to flatten JSON into dot notation. Forked from https://github.com/17twenty/flatter
 */
 package flatten
 

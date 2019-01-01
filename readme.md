@@ -1,6 +1,6 @@
 # go-flatten
 
-Really simple library and demo app to flatten JSON into dot notation. [![Forked][1] from [![Nick Glynn][2]
+Really simple library and demo app to flatten JSON into dot notation. [Forked][1] from [Nick Glynn][2]
 
 [1]: https://github.com/17twenty/flatter
 [2]: https://github.com/17twenty
