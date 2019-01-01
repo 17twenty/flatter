@@ -1,0 +1,11 @@
+{
+    "lib": {
+      "name": "go-flatten",
+      "description": "Really simple library and demo app to flatten JSON into dot notation",
+      "version": {
+        "major": "0",
+        "minor": "8"
+      }
+    }
+  }
+  

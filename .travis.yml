@@ -1,0 +1,20 @@
+lanuage: minimal
+sudo: false
+ignore:
+  - examples/*
+env:
+  - GOARCH=amd64
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+sudo: required
+
+services:
+  - docker
+
+script: make
+
+after_success:
+  - ./build/ci/tag.sh

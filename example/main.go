@@ -10,7 +10,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/17twenty/flatter"
+	flatten "github.com/cameronnewman/go-flatten"
 )
 
 var (
