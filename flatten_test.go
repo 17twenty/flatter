@@ -14,7 +14,113 @@ func TestFlatten(t *testing.T) {
 		args args
 		want Map
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Pass/StringSingleLevel",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": "world",
+				},
+			},
+			want: map[string]string{
+				"hello": "world",
+			},
+		},
+		{
+			name: "Pass/IntSingleLevel",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": 1234,
+				},
+			},
+			want: map[string]string{
+				"hello": "1234",
+			},
+		},
+		{
+			name: "Pass/BoolTrueSingleLevel",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": true,
+				},
+			},
+			want: map[string]string{
+				"hello": "true",
+			},
+		},
+		{
+			name: "Pass/BoolFalseSingleLevel",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": false,
+				},
+			},
+			want: map[string]string{
+				"hello": "false",
+			},
+		},
+		{
+			name: "Pass/FloatSingleLevel",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": 1234.56,
+				},
+			},
+			want: map[string]string{
+				"hello": "1234.560000",
+			},
+		},
+		{
+			name: "Pass/SliceSingleElement",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": []string{"world"},
+				},
+			},
+			want: map[string]string{
+				"hello.0": "world",
+			},
+		},
+		{
+			name: "Pass/SliceManyElement",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": []string{"world", "mars", "tree"},
+				},
+			},
+			want: map[string]string{
+				"hello.0": "world",
+				"hello.1": "mars",
+				"hello.2": "tree",
+			},
+		},
+		{
+			name: "Pass/MapSimple",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": map[string]interface{}{
+						"world": 27,
+					},
+				},
+			},
+			want: map[string]string{
+				"hello.world": "27",
+			},
+		},
+		{
+			name: "Pass/MapSimpleMany",
+			args: args{
+				thing: map[string]interface{}{
+					"hello": map[string]interface{}{
+						"world": 27,
+						"mars":  3,
+					},
+				},
+			},
+			want: map[string]string{
+				"hello.world": "27",
+				"hello.mars":  "3",
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

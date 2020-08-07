@@ -38,13 +38,13 @@ func main() {
 	flattenedObject := flatten.Flatten(jsonBlob)
 	if *out != "" {
 		file, err := os.Create(*out)
-		defer file.Close()
+		defer check(file.Close)
 		if err != nil {
 			log.Fatalln("os.Create:", err)
 			return
 		}
 		w := bufio.NewWriter(file)
-		defer w.Flush()
+		defer check(w.Flush)
 
 		for k, v := range flattenedObject {
 			fmt.Fprintf(w, "%s %s\n", k, v)
@@ -53,5 +53,11 @@ func main() {
 		for k, v := range flattenedObject {
 			fmt.Println(k, v)
 		}
+	}
+}
+
+func check(f func() error) {
+	if err := f(); err != nil {
+		log.Println("Received error:", err)
 	}
 }

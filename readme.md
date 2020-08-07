@@ -39,3 +39,6 @@ You can use the library as you see fit. Not sure how useful it will be tho :D
 
 ## Issues
  * None
+
+## License
+MIT Licensed
